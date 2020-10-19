@@ -249,9 +249,9 @@ namespace Lab2
         {
             bool expected = false;
 
-            IIG.BinaryFlag.MultipleBinaryFlag mbf1 = new IIG.BinaryFlag.MultipleBinaryFlag(100000, false);
-            IIG.BinaryFlag.MultipleBinaryFlag mbf2 = new IIG.BinaryFlag.MultipleBinaryFlag(100000, false);
-            mbf1.SetFlag(14567);
+            IIG.BinaryFlag.MultipleBinaryFlag mbf1 = new IIG.BinaryFlag.MultipleBinaryFlag(50000, false);
+            IIG.BinaryFlag.MultipleBinaryFlag mbf2 = new IIG.BinaryFlag.MultipleBinaryFlag(50000, false);
+            mbf1.SetFlag(1489);
 
             bool actual = mbf1.Equals(mbf2);
 
@@ -289,8 +289,8 @@ namespace Lab2
         {
             bool expected = true;
 
-            IIG.BinaryFlag.MultipleBinaryFlag mbf1 = new IIG.BinaryFlag.MultipleBinaryFlag(1000000, true);
-            IIG.BinaryFlag.MultipleBinaryFlag mbf2 = new IIG.BinaryFlag.MultipleBinaryFlag(1000000, true);
+            IIG.BinaryFlag.MultipleBinaryFlag mbf1 = new IIG.BinaryFlag.MultipleBinaryFlag(500000, true);
+            IIG.BinaryFlag.MultipleBinaryFlag mbf2 = new IIG.BinaryFlag.MultipleBinaryFlag(500000, true);
 
             bool actual = mbf1.Equals(mbf2);
 
@@ -308,6 +308,19 @@ namespace Lab2
             bool actual = mbf1.Equals(mbf2);
 
             Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void Despose()
+        {
+            bool expected = true;
+
+            IIG.BinaryFlag.MultipleBinaryFlag mbf1 = new IIG.BinaryFlag.MultipleBinaryFlag(2, true);
+            mbf1.Dispose();
+
+            bool actual = mbf1.GetFlag();
+
+            Assert.NotEqual(expected, actual);
         }
     }
 }
